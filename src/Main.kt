@@ -1,3 +1,13 @@
+// 2. Define a class
+
+// The part of the syntax before the opening curly brace is also referred to as the class header.
+// Recommended naming conventions for naming a class:
+//      - Don't use Kotlin keywords as a class name
+//      - Use PascalCase for naming a class
+class SmartDevice {
+    // empty body
+}
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
