@@ -11,14 +11,15 @@
 
 // 6.1 Default constructor
 // A default constructor is a constructor without parameters
-class SmartDevice {
+// The Kotlin compiler auto-generates the default constructor
+
+// 6.2 Define a parameterized constructor
+class SmartDevice(val name: String, val category: String) {
     // 5. Define a class properties
 
     // Properties are basically variables that are defined in the class body instead of the function body.
     // Immutable/read-only properties are defined with the val keyword, and mutable properties are defined with the
     // var keyword.
-    val name = "Android TV"
-    val category = "Entertainment"
     val deviceStatus = "online"
 
     // 5.1 Getter and setter functions in properties
@@ -54,7 +55,10 @@ fun main() {
     // val variables that contain an object reference are read-only themselves, but the objet proper they are
     // referencing remains mutable.
     // The following initializes a read-only variable smartTvDevice with an instance of the class SmartDevice.
-    val smartTvDevice = SmartDevice()
+    // 6.2 - If a class doesn't have a default constructor and you attempt to instantiate the object without arguments,
+    // the compiler reports an error
+//    val smartTvDevice = SmartDevice()
+    val smartTvDevice = SmartDevice(name = "Android TV", category = "Entertainment")
 
     // 4.1 Call a method on an object
 
