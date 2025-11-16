@@ -60,6 +60,12 @@ open class SmartDevice constructor(val name: String, val category: String) {
     }
 }
 
+// 7.1 Create a subclass that extends the SmartDevice superclass
+class SmartTvDevice(deviceName: String, deviceCategory: String):
+    SmartDevice(name = deviceName, category = deviceCategory) {
+    
+}
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
