@@ -27,4 +27,11 @@ fun main() {
     // referencing remains mutable.
     // The following initializes a read-only variable smartTvDevice with an instance of the class SmartDevice.
     val smartTvDevice = SmartDevice()
+
+    // 4.1 Call a method on an object
+
+    // The call to a method in a class is similar to how you call other functions.
+    // To call a method out of a class
+    smartTvDevice.turnOn()
+    smartTvDevice.turnOff()
 }
