@@ -14,13 +14,13 @@
 // The Kotlin compiler auto-generates the default constructor
 
 // 6.2 Define a parameterized constructor
-class SmartDevice(val name: String, val category: String) {
+class SmartDevice constructor(val name: String, val category: String) {
     // 5. Define a class properties
 
     // Properties are basically variables that are defined in the class body instead of the function body.
     // Immutable/read-only properties are defined with the val keyword, and mutable properties are defined with the
     // var keyword.
-    val deviceStatus = "online"
+    var deviceStatus = "online"
 
     // 5.1 Getter and setter functions in properties
 
@@ -33,6 +33,15 @@ class SmartDevice(val name: String, val category: String) {
         set(value) {
             field = value
         }
+
+    // Secondary construtor
+    constructor(name: String, category: String, statusCode: Int): this(name, category) {
+        deviceStatus = when(statusCode) {
+            1 -> "online"
+            0 -> "offline"
+            else -> "unknown"
+        }
+    }
 
     // 4. Define a class methods
     
