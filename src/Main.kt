@@ -5,6 +5,15 @@
 //      - Don't use Kotlin keywords as a class name
 //      - Use PascalCase for naming a class
 class SmartDevice {
+    // 5. Define a class properties
+
+    // Properties are basically variables that are defined in the class body instead of the function body.
+    // Immutable/read-only properties are defined with the val keyword, and mutable properties are defined with the
+    // var keyword.
+    val name = "Android TV"
+    val category = "Entertainment"
+    val deviceStatus = "online"
+
     // 4. Define a class methods
     
     // When you define a function in the class body, it's referred to as a member function or method, and it represents
