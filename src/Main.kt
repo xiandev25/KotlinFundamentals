@@ -4,6 +4,13 @@
 // Recommended naming conventions for naming a class:
 //      - Don't use Kotlin keywords as a class name
 //      - Use PascalCase for naming a class
+
+// 6. Define a constructor
+
+// The primary purpose of a constructor is to specify how the objects of the class are created.
+
+// 6.1 Default constructor
+// A default constructor is a constructor without parameters
 class SmartDevice {
     // 5. Define a class properties
 
