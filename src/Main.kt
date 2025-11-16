@@ -5,7 +5,17 @@
 //      - Don't use Kotlin keywords as a class name
 //      - Use PascalCase for naming a class
 class SmartDevice {
-    // empty body
+    // 4. Define a class methods
+    
+    // When you define a function in the class body, it's referred to as a member function or method, and it represents
+    // the behavior of the class.
+    fun turnOn() {
+        println("Smart device is turned on.")
+    }
+
+    fun turnOff() {
+        println("Smart device is turned off.")
+    }
 }
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
