@@ -147,11 +147,16 @@ class SmartHome(
     val smartLightDevice: SmartLightDevice
 ) {
 
+    private var deviceTurnOnCount = 0
+        private set
+
     fun turnOnTv() {
+        deviceTurnOnCount++
         smartTvDevice.turnOn()
     }
 
     fun turnOffTv() {
+        deviceTurnOnCount--
         smartTvDevice.turnOff()
     }
 
