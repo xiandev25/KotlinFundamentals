@@ -25,6 +25,9 @@ open class SmartDevice constructor(val name: String, val category: String) {
     // Immutable/read-only properties are defined with the val keyword, and mutable properties are defined with the
     // var keyword.
     var deviceStatus = "online"
+        protected set(value) {
+            field = value
+        }
 
     open val deviceType = "unknown"
 
