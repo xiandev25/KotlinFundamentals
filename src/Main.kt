@@ -26,7 +26,7 @@ open class SmartDevice constructor(val name: String, val category: String) {
     // var keyword.
     var deviceStatus = "online"
 
-    val deviceType = "unknown"
+    open val deviceType = "unknown"
 
     // 5.1 Getter and setter functions in properties
 
@@ -65,6 +65,8 @@ open class SmartDevice constructor(val name: String, val category: String) {
 // 7.1 Create a subclass that extends the SmartDevice superclass
 class SmartTvDevice(deviceName: String, deviceCategory: String):
     SmartDevice(name = deviceName, category = deviceCategory) {
+
+    override val deviceType: String = "Smart TV"
 
     var speakerVolume = 2
         get() = field
@@ -109,6 +111,8 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
 
 class SmartLightDevice(deviceName: String, deviceCategory: String):
     SmartDevice(name = deviceName, category = deviceCategory) {
+
+    override val deviceType = "Smart Light"
 
     var brightnessLevel = 0
         set(value) {
@@ -188,6 +192,7 @@ fun main() {
     // the compiler reports an error
 //    val smartTvDevice = SmartDevice()
     var smartDevice: SmartDevice = SmartTvDevice(deviceName = "Android TV", deviceCategory = "Entertainment")
+    println("${smartDevice.name}'s type is ${smartDevice.deviceType}")
 
     // 4.1 Call a method on an object
 
@@ -197,6 +202,7 @@ fun main() {
     smartDevice.turnOff()
 
     smartDevice = SmartLightDevice(deviceName = "Google Light", deviceCategory = "Utility")
+    println("${smartDevice.name}'s type is ${smartDevice.deviceType}")
     smartDevice.turnOn()
     smartDevice.turnOff()
 }
