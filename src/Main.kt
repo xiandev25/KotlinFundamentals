@@ -110,8 +110,43 @@ class SmartLightDevice(deviceName: String, deviceCategory: String):
 
 // 7.2  HAS-A relationships
 
-class SmartHome(val smartTvDevice: SmartTvDevice) {
-    
+class SmartHome(
+    val smartTvDevice: SmartTvDevice,
+    val smartLightDevice: SmartLightDevice
+) {
+
+    fun turnOnTv() {
+        smartTvDevice.turnOn()
+    }
+
+    fun turnOffTv() {
+        smartTvDevice.turnOff()
+    }
+
+    fun increaseTvVolume() {
+        smartTvDevice.increaseSpeakerVolume()
+    }
+
+    fun changeTvChannelToNext() {
+        smartTvDevice.nextChannel()
+    }
+
+    fun turnOnLight() {
+        smartLightDevice.turnOn()
+    }
+
+    fun turnOffLight() {
+        smartLightDevice.turnOff()
+    }
+
+    fun increaseLightBrightness() {
+        smartLightDevice.increaseBrightness()
+    }
+
+    fun turnOffAllDevices() {
+        turnOffTv()
+        turnOffLight()
+    }
 }
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
