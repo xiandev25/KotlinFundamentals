@@ -52,11 +52,11 @@ open class SmartDevice constructor(val name: String, val category: String) {
     // When you define a function in the class body, it's referred to as a member function or method, and it represents
     // the behavior of the class.
     open fun turnOn() {
-        println("Smart device is turned on.")
+        deviceStatus = "on"
     }
 
     open fun turnOff() {
-        println("Smart device is turned off.")
+        deviceStatus = "off"
     }
 }
 
@@ -90,7 +90,7 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
     }
 
     override fun turnOn() {
-        deviceStatus = "on"
+        super.turnOn()
         println(
             "$name is turned on. Speaker is set to $speakerVolume and channel number is " +
                     "set to $channelNumber"
@@ -98,7 +98,7 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
+        super.turnOff()
         println("$name turned off")
     }
 }
@@ -121,13 +121,13 @@ class SmartLightDevice(deviceName: String, deviceCategory: String):
     }
 
     override fun turnOn() {
-        deviceStatus = "on"
+        super.turnOn()
         brightnessLevel = 2
         println("$name turned on. The brightness level is $brightnessLevel.")
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
+        super.turnOff()
         brightnessLevel = 0
         println("Smart light turned off")
     }
