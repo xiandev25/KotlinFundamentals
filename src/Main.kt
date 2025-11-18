@@ -26,6 +26,8 @@ open class SmartDevice constructor(val name: String, val category: String) {
     // var keyword.
     var deviceStatus = "online"
 
+    val deviceType = "unknown"
+
     // 5.1 Getter and setter functions in properties
 
     // Kotlin properties use a backing field to hold a value in memory. A backing field is basically a class variable
