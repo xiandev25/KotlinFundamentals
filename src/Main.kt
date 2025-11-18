@@ -64,6 +64,10 @@ open class SmartDevice protected constructor(val name: String, val category: Str
     open fun turnOff() {
         deviceStatus = "off"
     }
+
+    fun printDeviceInfo() {
+        println("Device name: $name, category: $category, type: $deviceType")
+    }
 }
 
 // 7.1 Create a subclass that extends the SmartDevice superclass
@@ -204,7 +208,7 @@ fun main() {
     // the compiler reports an error
 //    val smartTvDevice = SmartDevice()
     var smartDevice: SmartDevice = SmartTvDevice(deviceName = "Android TV", deviceCategory = "Entertainment")
-    println("${smartDevice.name}'s type is ${smartDevice.deviceType}")
+    smartDevice.printDeviceInfo()
 
     // 4.1 Call a method on an object
 
@@ -214,7 +218,7 @@ fun main() {
     smartDevice.turnOff()
 
     smartDevice = SmartLightDevice(deviceName = "Google Light", deviceCategory = "Utility")
-    println("${smartDevice.name}'s type is ${smartDevice.deviceType}")
+    smartDevice.printDeviceInfo()
     smartDevice.turnOn()
     smartDevice.turnOff()
 }
