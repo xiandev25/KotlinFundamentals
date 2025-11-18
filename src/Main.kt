@@ -185,12 +185,16 @@ fun main() {
     // 6.2 - If a class doesn't have a default constructor and you attempt to instantiate the object without arguments,
     // the compiler reports an error
 //    val smartTvDevice = SmartDevice()
-    val smartTvDevice = SmartDevice(name = "Android TV", category = "Entertainment")
+    var smartDevice: SmartDevice = SmartTvDevice(deviceName = "Android TV", deviceCategory = "Entertainment")
 
     // 4.1 Call a method on an object
 
     // The call to a method in a class is similar to how you call other functions.
     // To call a method out of a class
-    smartTvDevice.turnOn()
-    smartTvDevice.turnOff()
+    smartDevice.turnOn()
+    smartDevice.turnOff()
+
+    smartDevice = SmartLightDevice(deviceName = "Google Light", deviceCategory = "Utility")
+    smartDevice.turnOn()
+    smartDevice.turnOff()
 }
