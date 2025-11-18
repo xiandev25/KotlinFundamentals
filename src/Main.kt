@@ -108,6 +108,12 @@ class SmartLightDevice(deviceName: String, deviceCategory: String):
     }
 }
 
+// 7.2  HAS-A relationships
+
+class SmartHome(val smartTvDevice: SmartTvDevice) {
+    
+}
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
