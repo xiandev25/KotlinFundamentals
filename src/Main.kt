@@ -18,7 +18,7 @@
 // 7. Implement a relationship between classes
 // In Kotlin, classes are final by default, which means they can't be extended. To make them extendable, you have to
 // "open" them.
-open class SmartDevice constructor(val name: String, val category: String) {
+open class SmartDevice protected constructor(val name: String, val category: String) {
     // 5. Define a class properties
 
     // Properties are basically variables that are defined in the class body instead of the function body.
