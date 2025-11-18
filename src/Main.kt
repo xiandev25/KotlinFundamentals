@@ -128,6 +128,11 @@ class SmartLightDevice(deviceName: String, deviceCategory: String):
         println("Brightness increased to $brightnessLevel")
     }
 
+    fun decreaseBrightness() {
+        brightnessLevel--
+        println("Brightness decreased to $brightnessLevel")
+    }
+
     override fun turnOn() {
         super.turnOn()
         brightnessLevel = 2
@@ -152,38 +157,54 @@ class SmartHome(
         private set
 
     fun turnOnTv() {
-        deviceTurnOnCount++
-        smartTvDevice.turnOn()
+        if (smartTvDevice.deviceStatus == "off") {
+            deviceTurnOnCount++
+            smartTvDevice.turnOn()
+        }
     }
 
     fun turnOffTv() {
-        deviceTurnOnCount--
-        smartTvDevice.turnOff()
+        if (smartTvDevice.deviceStatus == "on") {
+            deviceTurnOnCount--
+            smartTvDevice.turnOff()
+        }
     }
 
     fun increaseTvVolume() {
-        smartTvDevice.increaseSpeakerVolume()
+        if (smartTvDevice.deviceStatus == "on") {
+            smartTvDevice.increaseSpeakerVolume()
+        }
     }
 
     fun changeTvChannelToNext() {
-        smartTvDevice.nextChannel()
+        if (smartTvDevice.deviceStatus == "on") {
+            smartTvDevice.nextChannel()
+        }
     }
 
     fun turnOnLight() {
-        smartLightDevice.turnOn()
+        if(smartLightDevice.deviceStatus == "off") {
+            smartLightDevice.turnOn()
+        }
     }
 
     fun turnOffLight() {
-        smartLightDevice.turnOff()
+        if(smartLightDevice.deviceStatus == "on") {
+            smartLightDevice.turnOff()
+        }
     }
 
     fun increaseLightBrightness() {
-        smartLightDevice.increaseBrightness()
+        if(smartLightDevice.deviceStatus == "on") {
+            smartLightDevice.increaseBrightness()
+        }
     }
 
     fun turnOffAllDevices() {
-        turnOffTv()
-        turnOffLight()
+        if (smartTvDevice.deviceStatus == "on" && smartLightDevice.deviceStatus == "on") {
+            turnOffTv()
+            turnOffLight()
+        }
     }
 }
 
