@@ -1,3 +1,6 @@
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
 // 2. Define a class
 
 // The part of the syntax before the opening curly brace is also referred to as the class header.
@@ -18,7 +21,7 @@
 // 7. Implement a relationship between classes
 // In Kotlin, classes are final by default, which means they can't be extended. To make them extendable, you have to
 // "open" them.
-internal open class SmartDevice protected constructor(val name: String, val category: String) {
+open class SmartDevice protected constructor(val name: String, val category: String) {
     // 5. Define a class properties
 
     // Properties are basically variables that are defined in the class body instead of the function body.
@@ -69,20 +72,9 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
 
     override val deviceType: String = "Smart TV"
 
-    private var speakerVolume = 2
-        get() = field
-        set(value) {
-            if (value in 0..100) {
-                field = value
-            }
-        }
+    private var speakerVolume by RangeRegulator(initialValue = 2, minValue = 0, maxValue = 100)
 
-    private var channelNumber = 1
-        set(value) {
-            if (value in 0..200) {
-                field = value
-            }
-        }
+    private var channelNumber by RangeRegulator(initialValue = 1, minValue = 0, maxValue = 200)
 
     fun increaseSpeakerVolume() {
         speakerVolume++
@@ -115,12 +107,7 @@ class SmartLightDevice(deviceName: String, deviceCategory: String):
 
     override val deviceType = "Smart Light"
 
-    private var brightnessLevel = 0
-        set(value) {
-            if (value in 0..100) {
-                field = value
-            }
-        }
+    private var brightnessLevel by RangeRegulator(initialValue = 2, minValue = 0, maxValue = 100)
 
     fun increaseBrightness() {
         brightnessLevel++
@@ -183,6 +170,25 @@ class SmartHome(
     fun turnOffAllDevices() {
         turnOffTv()
         turnOffLight()
+    }
+}
+
+class RangeRegulator(
+    initialValue: Int,
+    private val minValue: Int,
+    private val maxValue: Int
+) : ReadWriteProperty<Any?, Int> {
+
+    var fieldData = initialValue
+
+    override fun getValue(thisRef: Any?, property: KProperty<*>): Int {
+        return fieldData
+    }
+
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
+        if (value in maxValue..maxValue) {
+            fieldData = value
+        }
     }
 }
 
