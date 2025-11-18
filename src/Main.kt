@@ -90,6 +90,14 @@ class SmartTvDevice(deviceName: String, deviceCategory: String):
     }
 }
 
+// 7.1.a Create the SmartLightDevice subclass of SmartDevice
+
+class SmartLightDevice(deviceName: String, deviceCategory: String):
+    SmartDevice(name = deviceName, category = deviceCategory) {
+
+
+}
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
