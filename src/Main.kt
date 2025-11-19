@@ -258,9 +258,9 @@ fun main() {
 //        "$it quarters"
 //    }
 
-    val trickFunction = trickOrTreat(isTrick = false, extraTreat = { quantity ->
+    val trickFunction = trickOrTreat(isTrick = false) { quantity ->
         "$quantity quarters"
-    })
+    }
     val treatFunction = trickOrTreat(isTrick = true, extraTreat = null)
     trickFunction()
     treatFunction()
