@@ -1,3 +1,4 @@
+import kotlin.math.exp
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -253,17 +254,22 @@ fun main() {
     smartDevice.turnOn()
     smartDevice.turnOff()
 
-    val trickFunction = trickOrTreat(isTrick = true)
-    val treatFuction = trickOrTreat(isTrick = false)
+    val coins: (Int) -> String = { quantity ->
+        "$quantity quarters"
+    }
+
+    val trickFunction = trickOrTreat(isTrick = false, extraTreat = coins)
+    val treatFunction = trickOrTreat(isTrick = true, extraTreat = coins)
     trickFunction()
-    treatFuction()
+    treatFunction()
 
 }
 
-fun trickOrTreat(isTrick: Boolean): () -> Unit {
+fun trickOrTreat(isTrick: Boolean, extraTreat: (Int) -> String): () -> Unit {
     if (isTrick) {
         return trick
-    }else{
+    } else {
+        println(extraTreat(5))
         return treat
     }
 }
