@@ -252,4 +252,10 @@ fun main() {
     smartDevice.printDeviceInfo()
     smartDevice.turnOn()
     smartDevice.turnOff()
+
+    val trickFunction = ::trick
+}
+
+fun trick() {
+    println("No treats!")
 }
