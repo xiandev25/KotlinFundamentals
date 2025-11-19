@@ -254,11 +254,13 @@ fun main() {
     smartDevice.turnOn()
     smartDevice.turnOff()
 
-    val coins: (Int) -> String = {
-        "$it quarters"
-    }
+//    val coins: (Int) -> String = {
+//        "$it quarters"
+//    }
 
-    val trickFunction = trickOrTreat(isTrick = false, extraTreat = coins)
+    val trickFunction = trickOrTreat(isTrick = false, extraTreat = { quantity ->
+        "$quantity quarters"
+    })
     val treatFunction = trickOrTreat(isTrick = true, extraTreat = null)
     trickFunction()
     treatFunction()
