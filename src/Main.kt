@@ -254,8 +254,8 @@ fun main() {
     smartDevice.turnOn()
     smartDevice.turnOff()
 
-    val coins: (Int) -> String = { quantity ->
-        "$quantity quarters"
+    val coins: (Int) -> String = {
+        "$it quarters"
     }
 
     val trickFunction = trickOrTreat(isTrick = false, extraTreat = coins)
