@@ -253,9 +253,19 @@ fun main() {
     smartDevice.turnOn()
     smartDevice.turnOff()
 
-    val trickFunction = trick
-    trick()
+    val trickFunction = trickOrTreat(isTrick = true)
+    val treatFuction = trickOrTreat(isTrick = false)
     trickFunction()
+    treatFuction()
+
+}
+
+fun trickOrTreat(isTrick: Boolean): () -> Unit {
+    if (isTrick) {
+        return trick
+    }else{
+        return treat
+    }
 }
 
 val trick = {
